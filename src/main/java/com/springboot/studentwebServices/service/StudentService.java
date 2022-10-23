@@ -18,4 +18,16 @@ public class StudentService {
     public String add(Student student) {
         return repository.add(student);
     }
+
+    public String delete(String id) {
+       return repository.delete(id);
+    }
+
+    public Student getStudentById(String id) {
+        return repository.getStudentById(id);
+    }
+
+    public Student updateStudent(Student student) {
+        return repository.updateStudent(student);
+    }
 }

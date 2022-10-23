@@ -11,14 +11,9 @@ import java.util.List;
 public class StudentRepository {
 
     List<Student> studentList = new ArrayList<Student>();
-    Student stud1 = new Student("1","Madhu","Pune");
-    Student stud2= new Student("2","Suraj","Krakow");
 
 
     public List<Student> getStudent(){
-        studentList.add(stud1);
-        studentList.add(stud2);
-        System.out.println(studentList);
         return studentList;
     }
 
@@ -26,4 +21,28 @@ public class StudentRepository {
         studentList.add(student);
         return "Student added Successfully";
     }
+
+    public String delete(String id) {
+        studentList.removeIf(student -> student.getId().equals(id));
+        return "Removed Student Successfully";
+    }
+
+    public Student getStudentById(String id) {
+        return studentList.stream().filter(student -> student.getId().equals(id)).findFirst().get();
+    }
+
+    public Student updateStudent(Student student) {
+        Student student1 = new Student();
+        int index;
+        for(index = 0; index < studentList.size(); index++) {
+            if (studentList.get(index).getId().equals(student.getId())) {
+                student1.setId(student.getId());
+                student1.setName(student.getName());
+                student1.setAddress(student.getAddress());
+
+            }
+        }
+            studentList.add(student1);
+            return student1;
+        }
 }
