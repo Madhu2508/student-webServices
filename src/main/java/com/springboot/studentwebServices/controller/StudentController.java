@@ -25,13 +25,13 @@ public class StudentController {
     }
 
     @PostMapping("/addStudent")
-    public String addStudent(@RequestBody Student student){
+    public Student addStudent(@RequestBody Student student){
         return studentService.add(student);
     }
 
     @DeleteMapping("/deleteStudent/{id}")
-    public String deleteStudent(@PathVariable("id") String id){
-        return studentService.delete(id);
+    public void deleteStudent(@PathVariable("id") String id){
+         studentService.delete(id);
     }
 
     @PutMapping("/updateStudent")
