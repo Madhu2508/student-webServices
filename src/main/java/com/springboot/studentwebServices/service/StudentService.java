@@ -11,9 +11,10 @@ import java.util.List;
 @Service
 public class StudentService {
     @Autowired
-    StudentRepository repository;
+    private StudentRepository repository;
 
-    List<Student> studentList = new ArrayList<Student>();
+    List<Student> studentList = new ArrayList<>();
+
     public List<Student> getAll() {
         return (List<Student>) repository.findAll();
     }
