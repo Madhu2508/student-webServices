@@ -1,7 +1,6 @@
 package com.springboot.studentwebServices.controller;
 
 import com.springboot.studentwebServices.model.Student;
-import com.springboot.studentwebServices.repository.StudentRepository;
 import com.springboot.studentwebServices.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +35,6 @@ public class StudentController {
 
     @PutMapping("/updateStudent")
     public Student updateStudent(@RequestBody Student student){
-        return studentService.updateStudent(student);
+        return studentService.updateStudent(student, student.getId());
     }
 }
